@@ -1,0 +1,33 @@
+
+body {
+	background-color: #d1d0ce;
+}
+#header {
+	text-align: center;
+	margin-bottom: 50px;
+	background-color: #3d3c3a;
+	color: #fff;
+	padding-top: 5px;
+	padding-bottom: 15px;
+}
+
+#content {
+	background-color: #3d3c3a;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	text-align: center;
+	border: dashed 5px red;
+}
+
+#info-side {
+	border-right: dashed 5px red;
+}
+
+#footer {
+	text-align: center;
+	height: 50px;
+	margin-top: 300px;
+}
+
+
