@@ -17,11 +17,21 @@ body {
 	padding-top: 20px;
 	padding-bottom: 10px;
 	text-align: center;
-	border: dashed 5px red;
+	border: solid 3px white;
+}
+
+#hangman-pic {
+	height: 250px;
+	width: 250px;
+	margin-bottom: 10px;
+}
+
+.panel-body {
+	background: #3d3c3a;
 }
 
 #info-side {
-	border-right: dashed 5px red;
+	/*border-right: dashed 5px red;*/
 }
 
 #footer {
