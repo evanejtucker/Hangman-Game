@@ -4,8 +4,7 @@ window.onload = function() {
 
 //arrays and variables for holding data
 var options = ["batman", "superman", "aquaman", "shazam", "cyborg",
-			   "wolverine", "daredevil", "firestorm", "colossus"];
-var selectedCategory; 
+			   "wolverine", "daredevil", "firestorm", "colossus"]; 
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
@@ -20,7 +19,7 @@ var guessesLeft = 7;
 // Functions
 //------------------------------------------------------------
 
-startGame = function() {
+var startGame = function() {
 	selectedWord = options[Math.floor(Math.random() * options.length)];
 	lettersInWord = selectedWord.split("");
 	numBlanks = lettersInWord.length;
@@ -90,13 +89,15 @@ function roundComplete() {
 
 	// update the html with the most recent information
 	document.getElementById("guessesLeft").innerHTML = guessesLeft;
-	document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join("");
+	document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
 	document.getElementById("wrongGuesses").innerHTML = wrongGuesses;
 
 	// check if user won
-	if(lettersInWord.toString() == blanksAndSuccesses.toString()) {
+	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
 		wins++;
 		alert("You Won");
+		// document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
+		changePic();
 
 		// update win counter and restart game when the user wins
 		document.getElementById("wins").innerHTML = wins;
@@ -115,49 +116,51 @@ function roundComplete() {
 }
 
 // function to change picture when users guesses correct
-changePic = function() {
-	if(options[i] == 0) {
-		document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
-	}
+ var changePic = function() {
+ 	console.log("text");
 
-	else if(options[i] == 1) {
-		document.getElementById("hangman-pic").src = "assets/images/superman.jpg";
-	}
+		if(selectedWord === "batman") {
+			document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
+		}
 
-	else if(options[i] == 2) {
-		document.getElementById("hangman-pic").src = "assets/images/aquaman.jpg";
-	}
+		else if(selectedWord === "superman") {
+			document.getElementById("hangman-pic").src = "assets/images/superman.jpg";
+		}
 
-	else if(options[i] == 3) {
-		document.getElementById("hangman-pic").src = "assets/images/shazam.jpg";
-	}
+		else if(selectedWord === "aquaman") {
+			document.getElementById("hangman-pic").src = "assets/images/aquaman.jpg";
+		}
 
-	else if(options[i] == 4) {
-		document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
-	}
+		else if(selectedWord === "shazam") {
+			document.getElementById("hangman-pic").src = "assets/images/shazam.jpg";
+		}
 
-	else if(options[i] == 5) {
-		document.getElementById("hangman-pic").src = "assets/images/wolverine.jpg";
-	}
+		else if(selectedWord === "cyborg") {
+			document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
+		}
 
-	else if(options[i] == 6) {
-		document.getElementById("hangman-pic").src = "assets/images/daredevil.jpg";
-	}
+		else if(selectedWord === "wolverine") {
+			document.getElementById("hangman-pic").src = "assets/images/wolverine.jpg";
+		}
 
-	else if(options[i] == 7) {
-		document.getElementById("hangman-pic").src = "assets/images/firestorm.jpg";
-	}
+		else if(selectedWord === "daredevil") {
+			document.getElementById("hangman-pic").src = "assets/images/daredevil.jpg";
+		}
 
-	else if(options[i] == 8) {
-		document.getElementById("hangman-pic").src = "assets/images/colossus.jpg";
-	}
+		else if(selectedWord === "firestorm") {
+			document.getElementById("hangman-pic").src = "assets/images/firestorm.jpg";
+		}
+
+		else if(selectedWord === "colossus") {
+			document.getElementById("hangman-pic").src = "assets/images/colossus.jpg";
+		}
 }
 
 // Main Process
 //------------------------------------------------------------
 
 startGame();
-changePic();
+// changePic();
 
 document.onkeyup = function(event) {
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
