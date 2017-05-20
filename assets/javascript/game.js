@@ -3,15 +3,8 @@ window.onload = function() {
 //------------------------------------------------------------
 
 //arrays and variables for holding data
-var categories = [ 
-					["nebuchadnezzar_ii","augustus_caesar", "xerxes_i", 
-			  		 "genghis_khan", "agamemnon", "charlemagne"],
-			  		["rhinoceros", "elephant", "wombat", "ostrich", "panther", 
-			  		 "marmot", "falcon"],
-			  		["saturn", "neptune", "mars", "venus", "earth", "mercury"],
-			  		["superman", "batman", "aquaman", "shazam", "nightwing", 
-			  		 "daredevil", "cyborg"]
-			  	 ];
+var options = ["batman", "superman", "aquaman", "shazam", "cyborg",
+			   "wolverine", "daredevil", "firestorm", "colossus"];
 var selectedCategory; 
 var selectedWord = "";
 var lettersInWord = [];
@@ -28,8 +21,7 @@ var guessesLeft = 7;
 //------------------------------------------------------------
 
 startGame = function() {
-	selectedCategory = categories[Math.floor(Math.random() * categories.length)];
-	selectedWord = selectedCategory[Math.floor(Math.random() * selectedCategory.length)];
+	selectedWord = options[Math.floor(Math.random() * options.length)];
 	lettersInWord = selectedWord.split("");
 	numBlanks = lettersInWord.length;
 
@@ -53,6 +45,9 @@ startGame = function() {
 	document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	document.getElementById("wins").innerHTML = wins;
 	document.getElementById("losses").innerHTML = losses;
+	// document.getElementById("hangman-pic").src = "assets/images/hangman.png";
+
+	
 
 	// testing / debugging
 	console.log(selectedWord);
@@ -96,7 +91,7 @@ function roundComplete() {
 	// update the html with the most recent information
 	document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join("");
-	document.getElementById("wrongGuesses").innerHTML = wrongGuesses + " ";
+	document.getElementById("wrongGuesses").innerHTML = wrongGuesses;
 
 	// check if user won
 	if(lettersInWord.toString() == blanksAndSuccesses.toString()) {
@@ -119,15 +114,56 @@ function roundComplete() {
 
 }
 
+// function to change picture when users guesses correct
+changePic = function() {
+	if(options[i] == 0) {
+		document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
+	}
+
+	else if(options[i] == 1) {
+		document.getElementById("hangman-pic").src = "assets/images/superman.jpg";
+	}
+
+	else if(options[i] == 2) {
+		document.getElementById("hangman-pic").src = "assets/images/aquaman.jpg";
+	}
+
+	else if(options[i] == 3) {
+		document.getElementById("hangman-pic").src = "assets/images/shazam.jpg";
+	}
+
+	else if(options[i] == 4) {
+		document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
+	}
+
+	else if(options[i] == 5) {
+		document.getElementById("hangman-pic").src = "assets/images/wolverine.jpg";
+	}
+
+	else if(options[i] == 6) {
+		document.getElementById("hangman-pic").src = "assets/images/daredevil.jpg";
+	}
+
+	else if(options[i] == 7) {
+		document.getElementById("hangman-pic").src = "assets/images/firestorm.jpg";
+	}
+
+	else if(options[i] == 8) {
+		document.getElementById("hangman-pic").src = "assets/images/colossus.jpg";
+	}
+}
+
 // Main Process
 //------------------------------------------------------------
 
 startGame();
+changePic();
 
 document.onkeyup = function(event) {
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
 	checkLetters(letterGuessed);
 	roundComplete();
+	
 
 	// testing / debugging
 	console.log(letterGuessed);
