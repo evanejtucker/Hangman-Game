@@ -42,10 +42,6 @@ var startGame = function() {
 	document.getElementById("losses").innerHTML = losses;
 	// document.getElementById("hangman-pic").src = "assets/images/hangman.png";
 
-	// play sound when game start: test
-	// var audioElement = document.createElement("audio");
- //    audioElement.setAttribute("src", "../sounds/batman.mp3");
- //    audioElement.play();
 	
 
 	// testing / debugging
@@ -95,12 +91,14 @@ function roundComplete() {
 	// check if user won
 	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
 		wins++;
+		blanksAndSuccesses = wordToGuess;
 		alert("You Won");
 		heroSet();
 
 		// update win counter and restart game when the user wins
 		document.getElementById("wins").innerHTML = wins;
-		// startGame();
+		
+		startGame();
 	}
 	// check if user lost
 	else if (guessesLeft == 0) {
@@ -115,6 +113,7 @@ function roundComplete() {
 
 }
 
+
 // function to change picture when users guesses correct
  var heroSet = function() {
  	console.log("text");
@@ -124,6 +123,7 @@ function roundComplete() {
 			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
 			document.getElementById("nameTag").innerHTML = "Batman";
 			// document.getElementById("description").innerHTML = "";
+			startGame()
 		}
 
 		else if(selectedWord === "superman") {
@@ -185,6 +185,10 @@ function roundComplete() {
 			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
 			document.getElementById("nameTag").innerHTML = "Spiderman";
 		}
+
+		else {
+			document.getElementById("hangman-pic").src = "assets/images/hangman.jpg";
+		}
 }
 
 // Main Process
@@ -192,6 +196,7 @@ function roundComplete() {
 
 startGame();
 // changePic();
+
 
 document.onkeyup = function(event) {
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
@@ -202,5 +207,8 @@ document.onkeyup = function(event) {
 	// testing / debugging
 	console.log(letterGuessed);
 }
+
+
+
 
 }
