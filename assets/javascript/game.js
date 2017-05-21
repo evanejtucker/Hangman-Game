@@ -32,12 +32,7 @@ var startGame = function() {
 
 	// Populate blanks and successes with correct number of blanks.
 	for(i=0; i<numBlanks; i++) {
-		if (lettersInWord[i] === "_") {
-			blanksAndSuccesses.push("-");
-		}
-		else {
-			blanksAndSuccesses.push("_");
-		}
+		blanksAndSuccesses.push("_");
 	}
 
 	//change HTML to meet game starting conditions
@@ -48,9 +43,9 @@ var startGame = function() {
 	// document.getElementById("hangman-pic").src = "assets/images/hangman.png";
 
 	// play sound when game start: test
-	var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "../sounds/batman.mp3");
-    audioElement.play();
+	// var audioElement = document.createElement("audio");
+ //    audioElement.setAttribute("src", "../sounds/batman.mp3");
+ //    audioElement.play();
 	
 
 	// testing / debugging
@@ -95,7 +90,7 @@ function roundComplete() {
 	// update the html with the most recent information
 	document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
-	document.getElementById("wrongGuesses").innerHTML = wrongGuesses;
+	document.getElementById("wrongGuesses").innerHTML = wrongGuesses.join(" ");
 
 	// check if user won
 	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
@@ -105,7 +100,7 @@ function roundComplete() {
 
 		// update win counter and restart game when the user wins
 		document.getElementById("wins").innerHTML = wins;
-		startGame();
+		// startGame();
 	}
 	// check if user lost
 	else if (guessesLeft == 0) {
