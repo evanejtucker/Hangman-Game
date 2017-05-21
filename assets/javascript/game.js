@@ -162,7 +162,7 @@ function roundComplete() {
 		else if(selectedWord === "wolverine") {
 			document.getElementById("hangman-pic").src = "assets/images/wolverine.jpg";
 			document.getElementById("nameTag").innerHTML = "Wolverine";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Superhuman senses, agility, reflexes, and animal-like attributes, extended longevity via regenerative healing factor, adamantium-plated skeleton, retractable bone claws, skilled hand-to-hand combatant";
 		}
 
 		else if(selectedWord === "daredevil") {
