@@ -1,6 +1,11 @@
 
 body {
-	background-color: #d1d0ce;
+	/*ackground-color: #d1d0ce;*/
+	background-image: url("../images/logo-background.jpg");
+}
+
+.container{
+	margin-top: 100px;
 }
 #header {
 	text-align: center;
@@ -13,6 +18,7 @@ body {
 
 #content {
 	background-color: #3d3c3a;
+	/*background-image: url("../images/comicBackground.jpg");*/
 	color: white;
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -38,6 +44,12 @@ body {
 	text-align: center;
 	height: 50px;
 	margin-top: 300px;
+	color: white;
+}
+
+#heroImage {
+	height: 350px;
+	width: 250px;
 }
 
 

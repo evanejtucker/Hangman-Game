@@ -4,7 +4,8 @@ window.onload = function() {
 
 //arrays and variables for holding data
 var options = ["batman", "superman", "aquaman", "shazam", "cyborg",
-			   "wolverine", "daredevil", "firestorm", "colossus"]; 
+			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool",
+			   "spiderman"]; 
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
@@ -46,6 +47,10 @@ var startGame = function() {
 	document.getElementById("losses").innerHTML = losses;
 	// document.getElementById("hangman-pic").src = "assets/images/hangman.png";
 
+	// play sound when game start: test
+	var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "../sounds/batman.mp3");
+    audioElement.play();
 	
 
 	// testing / debugging
@@ -96,8 +101,7 @@ function roundComplete() {
 	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
 		wins++;
 		alert("You Won");
-		// document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
-		changePic();
+		heroSet();
 
 		// update win counter and restart game when the user wins
 		document.getElementById("wins").innerHTML = wins;
@@ -107,6 +111,7 @@ function roundComplete() {
 	else if (guessesLeft == 0) {
 		losses++;
 		alert("You Lost");
+		heroSet();
 
 		//update HTML
 		document.getElementById("losses").innerHTML = losses;
@@ -116,43 +121,74 @@ function roundComplete() {
 }
 
 // function to change picture when users guesses correct
- var changePic = function() {
+ var heroSet = function() {
  	console.log("text");
 
 		if(selectedWord === "batman") {
 			document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Batman";
+			// document.getElementById("description").innerHTML = "";
 		}
 
 		else if(selectedWord === "superman") {
 			document.getElementById("hangman-pic").src = "assets/images/superman.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Superman";
 		}
 
 		else if(selectedWord === "aquaman") {
 			document.getElementById("hangman-pic").src = "assets/images/aquaman.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Aquaman";
 		}
 
 		else if(selectedWord === "shazam") {
 			document.getElementById("hangman-pic").src = "assets/images/shazam.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Shazam";
 		}
 
 		else if(selectedWord === "cyborg") {
 			document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Cyborg";
 		}
 
 		else if(selectedWord === "wolverine") {
 			document.getElementById("hangman-pic").src = "assets/images/wolverine.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Wolverine";
 		}
 
 		else if(selectedWord === "daredevil") {
 			document.getElementById("hangman-pic").src = "assets/images/daredevil.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Daredevil";
 		}
 
 		else if(selectedWord === "firestorm") {
 			document.getElementById("hangman-pic").src = "assets/images/firestorm.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Firestorm";
 		}
 
 		else if(selectedWord === "colossus") {
 			document.getElementById("hangman-pic").src = "assets/images/colossus.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Colossus";
+		}
+
+		else if(selectedWord === "deadpool") {
+			document.getElementById("hangman-pic").src = "assets/images/deadpool.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Deadpool";
+		}
+
+		else if(selectedWord === "spiderman") {
+			document.getElementById("hangman-pic").src = "assets/images/spiderman.jpg";
+			// document.getElementById("hangman-pic").setAttribute("id", "heroImage");
+			document.getElementById("nameTag").innerHTML = "Spiderman";
 		}
 }
 

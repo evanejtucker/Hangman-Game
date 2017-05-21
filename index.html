@@ -18,11 +18,7 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="jumbotron" id="header">
-  			<h1>Hangman Game</h1>
-		</div>
-
+	<div class="container" id="styleContainer">
 		<div class="row">
 			<!-- padding on left of 3 collums -->
 			<div class="col-md-2">
@@ -30,10 +26,18 @@
 
 			<!-- this div will contain the main game content -->
 			<div class="col-md-8" id="content">
+			<!-- header row -->
+			<div class="row">
+				<div class="jumbotron" id="header">
+		  			<h1>Hangman Game</h1>
+				</div>
+			</div>
+			<!-- game row -->
+			<div class="row">
 				<div class="col-md-6" id="info-side">
 					<img id="hangman-pic" src="assets/images/hangman.png">
-					<h2>Hangman</h2>
-					<p> The rules are simple, guess the letters correctly to form a word before your run out of guesses... or bring shame upon your family.</p>
+					<h2 id="nameTag">Hangman</h2>
+					<p id="description"> The rules are simple, guess the letters correctly to form a word before your run out of guesses... or bring shame upon your family.</p>
 				</div>
 				<div class="col-md-6 text-center">
 					<h2> Press any key to get started! </h2><hr>
@@ -71,6 +75,7 @@
 				</div>
 
 			</div>
+		</div>
 		</div>
 	</div>
 
