@@ -5,7 +5,9 @@ window.onload = function() {
 //arrays and variables for holding data
 var options = ["batman", "superman", "aquaman", "shazam", "cyborg",
 			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool",
-			   "spiderman"]; 
+			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
+			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", 
+			   "joker", "darkseid" ]; 
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
@@ -91,9 +93,8 @@ function roundComplete() {
 	// check if user won
 	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
 		wins++;
-		blanksAndSuccesses = wordToGuess;
 		heroSet();
-		alert("you Won");
+		alert(blanksAndSuccesses.join("") + " is correct!");
 
 		// update win counter and restart game when the user wins
 		document.getElementById("wins").innerHTML = wins;
@@ -104,7 +105,7 @@ function roundComplete() {
 	else if (guessesLeft == 0) {
 		losses++;
 		heroSet();
-		alert("You Lost");
+		alert("You Lost" + "\n" + "The correct ansswer was " + lettersInWord.join(""));
 		
 
 		//update HTML
@@ -120,6 +121,7 @@ function roundComplete() {
  	console.log("text");
 
  		document.getElementById("hangman-pic").style.height = "350px";
+ 		document.getElementById("hangman-pic").style.border = "solid 2px white";
 
 		if(selectedWord === "batman") {
 			document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
@@ -177,10 +179,65 @@ function roundComplete() {
 			document.getElementById("nameTag").innerHTML = "Spiderman";
 		}
 
-		else {
-			document.getElementById("hangman-pic").src = "assets/images/hangman.jpg";
-			document.getElementById("hangman-pic").style.height = "250px";
+		else if(selectedWord === "magneto") {
+			document.getElementById("hangman-pic").src = "assets/images/magneto.jpg";
+			document.getElementById("nameTag").innerHTML = "Magneto";
 		}
+
+		else if(selectedWord === "juggernaut") {
+			document.getElementById("hangman-pic").src = "assets/images/juggernaut.jpg";
+			document.getElementById("nameTag").innerHTML = "Juggernaut";
+		}
+
+		else if(selectedWord === "apocalypse") {
+			document.getElementById("hangman-pic").src = "assets/images/apocalypse.jpg";
+			document.getElementById("nameTag").innerHTML = "Apocalypse";
+		}
+
+		else if(selectedWord === "doomsday") {
+			document.getElementById("hangman-pic").src = "assets/images/doomsday.jpg";
+			document.getElementById("nameTag").innerHTML = "Doomsday";
+		}
+
+		else if(selectedWord === "scarecrow") {
+			document.getElementById("hangman-pic").src = "assets/images/scarecrow.jpg";
+			document.getElementById("nameTag").innerHTML = "Scarecrow";
+		}
+
+		else if(selectedWord === "deathstroke") {
+			document.getElementById("hangman-pic").src = "assets/images/deathstroke.jpg";
+			document.getElementById("nameTag").innerHTML = "Deathstroke";
+		}
+
+		else if(selectedWord === "ultron") {
+			document.getElementById("hangman-pic").src = "assets/images/ultron.jpg";
+			document.getElementById("nameTag").innerHTML = "Ultron";
+		}
+
+		else if(selectedWord === "brainiac") {
+			document.getElementById("hangman-pic").src = "assets/images/brainiac.jpg";
+			document.getElementById("nameTag").innerHTML = "Brainiac";
+		}
+
+		else if(selectedWord === "sinestro") {
+			document.getElementById("hangman-pic").src = "assets/images/sinestro.jpg";
+			document.getElementById("nameTag").innerHTML = "Sinestro";
+		}
+
+		else if(selectedWord === "joker") {
+			document.getElementById("hangman-pic").src = "assets/images/joker.jpg";
+			document.getElementById("nameTag").innerHTML = "The Joker";
+		}
+
+		else if(selectedWord === "darkseid") {
+			document.getElementById("hangman-pic").src = "assets/images/darkseid.jpg";
+			document.getElementById("nameTag").innerHTML = "Darkseid";
+		}
+
+			else {
+				document.getElementById("hangman-pic").src = "assets/images/hangman.png";
+				document.getElementById("hangman-pic").style.height = "250px";
+			}
 }
 
 // Main Process

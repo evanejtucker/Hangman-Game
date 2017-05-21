@@ -2,23 +2,27 @@
 body {
 	/*ackground-color: #d1d0ce;*/
 	background-image: url("../images/logo-background.jpg");
+	font-family: 'Orbitron', sans-serif;
 }
 
 .container{
 	margin-top: 100px;
+
 }
+
+
 #header {
 	text-align: center;
 	margin-bottom: 50px;
-	background-color: #3d3c3a;
+	/*background-color: #3d3c3a;*/
 	color: #fff;
-	padding-top: 5px;
+	margin-top: -10px;
 	padding-bottom: 15px;
 }
 
 #content {
-	background-color: #3d3c3a;
-	/*background-image: url("../images/comicBackground.jpg");*/
+	/*background-color: #3d3c3a;*/
+	background-color: #25383C;
 	color: white;
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -33,7 +37,13 @@ body {
 }
 
 .panel-body {
-	background: #3d3c3a;
+	color: black;
+}
+
+p#description {
+	font-size: 1.2em;
+	line-height: 1.5;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 #info-side {
