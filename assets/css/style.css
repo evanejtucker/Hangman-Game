@@ -62,4 +62,14 @@ p#description {
 	width: 250px;
 }
 
+#guessesLeft {
+	/*color: red;*/
+}
 
+.panel-title {
+	font-weight: bold;
+}
+
+#powers-tag {
+	text-align: left;
+}
