@@ -42,6 +42,7 @@ var startGame = function() {
 	document.getElementById("guessesLeft").innerHTML = guessesLeft;
 	document.getElementById("wins").innerHTML = wins;
 	document.getElementById("losses").innerHTML = losses;
+	document.getElementById("guessesLeft").style.color = "black";
 	// document.getElementById("hangman-pic").src = "assets/images/hangman.png";
 
 	
@@ -132,31 +133,31 @@ function roundComplete() {
 		if(selectedWord === "batman") {
 			document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
 			document.getElementById("nameTag").innerHTML = "Batman";
-			document.getElementById("description").innerHTML = "exceptional martial artist, combat strategy, inexhaustible wealth, brilliant deductive skill, advanced technology";
+			document.getElementById("description").innerHTML = "Exceptional martial artist, combat strategy, inexhaustible wealth, brilliant deductive skill, advanced technology";
 		}
 
 		else if(selectedWord === "superman") {
 			document.getElementById("hangman-pic").src = "assets/images/superman.jpg";
 			document.getElementById("nameTag").innerHTML = "Superman";
-			document.getElementById("description").innerHTML = "super strength, flight, invulnerability, super speed, heat vision, freeze breath, x-ray vision, superhuman hearing, healing factor";
+			document.getElementById("description").innerHTML = "Super strength, flight, invulnerability, super speed, heat vision, freeze breath, x-ray vision, superhuman hearing, healing factor";
 		}
 
 		else if(selectedWord === "aquaman") {
 			document.getElementById("hangman-pic").src = "assets/images/aquaman.jpg";
 			document.getElementById("nameTag").innerHTML = "Aquaman";
-			document.getElementById("description").innerHTML = "super strength, durability, control over sea life, exceptional swimming ability, ability to breathe underwater";
+			document.getElementById("description").innerHTML = "Super strength, durability, control over sea life, exceptional swimming ability, ability to breathe underwater";
 		}
 
 		else if(selectedWord === "shazam") {
 			document.getElementById("hangman-pic").src = "assets/images/shazam.jpg";
 			document.getElementById("nameTag").innerHTML = "Shazam";
-			document.getElementById("description").innerHTML = "super strength, flight, invulnerability, super speed, superhuman hearing, healing factor, intelligence, magic";
+			document.getElementById("description").innerHTML = "Super strength, flight, invulnerability, super speed, superhuman hearing, healing factor, intelligence, magic";
 		}
 
 		else if(selectedWord === "cyborg") {
 			document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
 			document.getElementById("nameTag").innerHTML = "Cyborg";
-			document.getElementById("description").innerHTML = "super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation";
+			document.getElementById("description").innerHTML = "Super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation";
 		}
 
 		else if(selectedWord === "wolverine") {
@@ -168,97 +169,97 @@ function roundComplete() {
 		else if(selectedWord === "daredevil") {
 			document.getElementById("hangman-pic").src = "assets/images/daredevil.jpg";
 			document.getElementById("nameTag").innerHTML = "Daredevil";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Peak human physical and mental condition highly skilled acrobat, martial artist and hand-to-hand combatant, radar sense, superhuman sense, utilization of specially-designed club";
 		}
 
 		else if(selectedWord === "firestorm") {
 			document.getElementById("hangman-pic").src = "assets/images/firestorm.jpg";
 			document.getElementById("nameTag").innerHTML = "Firestorm";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Flight, super strength, energy blasts, radiation absorption, atomic/molecular rearrangement and restructuring";
 		}
 
 		else if(selectedWord === "colossus") {
 			document.getElementById("hangman-pic").src = "assets/images/colossus.jpg";
 			document.getElementById("nameTag").innerHTML = "Colossus";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Transformation of body into steel-like substance granting superhuman strength and durability";
 		}
 
 		else if(selectedWord === "deadpool") {
 			document.getElementById("hangman-pic").src = "assets/images/deadpool.jpg";
 			document.getElementById("nameTag").innerHTML = "Deadpool";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Regenerative healing factor, skilled marksman, swordsman, and hand-to-hand combatant, extended longevity, utilizes magic satchel and devices granting teleportation and holographic disguise";
 		}
 
 		else if(selectedWord === "spiderman") {
 			document.getElementById("hangman-pic").src = "assets/images/spiderman.jpg";
 			document.getElementById("nameTag").innerHTML = "Spiderman";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Genius-level intellect, superhuman strength, speed, and agility, ability to cling to most surfaces, precognitive Spider-sense, utilizes web-shooters to shoot strong spider-web strings from wrists";
 		}
 
 		else if(selectedWord === "magneto") {
 			document.getElementById("hangman-pic").src = "assets/images/magneto.jpg";
 			document.getElementById("nameTag").innerHTML = "Magneto";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Magnetism manipulation and generation of magnetic force fields, flight through magnetic fields, helmet shields against telepathic attacks";
 		}
 
 		else if(selectedWord === "juggernaut") {
 			document.getElementById("hangman-pic").src = "assets/images/juggernaut.jpg";
 			document.getElementById("nameTag").innerHTML = "Juggernaut";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Superhuman strength and durability, invulnerability via mystical force field, virtually unstoppable momentum, immunity to mental attacks via his helmet";
 		}
 
 		else if(selectedWord === "apocalypse") {
 			document.getElementById("hangman-pic").src = "assets/images/apocalypse.jpg";
 			document.getElementById("nameTag").innerHTML = "Apocalypse";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Genius-level intellect, telekinesis, telepathy, technology manipulation, matter manipulation, matter transmutation, self-molecular manipulation: (teleportation, immortality, invulnerability, regenerative healing factor, shapeshifting, godlike strength, stamina, speed and reflexes), energy Manipulation";
 		}
 
 		else if(selectedWord === "doomsday") {
 			document.getElementById("hangman-pic").src = "assets/images/doomsday.jpg";
 			document.getElementById("nameTag").innerHTML = "Doomsday";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Super strength, invulnerability, super speed, healing factor, superhuman agility";
 		}
 
 		else if(selectedWord === "scarecrow") {
 			document.getElementById("hangman-pic").src = "assets/images/scarecrow.jpg";
 			document.getElementById("nameTag").innerHTML = "Scarecrow";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Intelligence, Fear provocation";
 		}
 
 		else if(selectedWord === "deathstroke") {
 			document.getElementById("hangman-pic").src = "assets/images/deathstroke.jpg";
 			document.getElementById("nameTag").innerHTML = "Deathstroke";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Exceptional martial artist, combat strategy, durability, enhanced strength and speed, weapons expert, superhuman agility, master swordsman";
 		}
 
 		else if(selectedWord === "ultron") {
 			document.getElementById("hangman-pic").src = "assets/images/ultron.jpg";
 			document.getElementById("nameTag").innerHTML = "Ultron";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Artificial intelligence with genius-level intellect, abilities via robotic body vary but generally include: (superhuman strength, speed, durability, flight, and energy blasts)";
 		}
 
 		else if(selectedWord === "brainiac") {
 			document.getElementById("hangman-pic").src = "assets/images/brainiac.jpg";
 			document.getElementById("nameTag").innerHTML = "Brainiac";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Alien technology, Genius-level intellect";
 		}
 
 		else if(selectedWord === "sinestro") {
 			document.getElementById("hangman-pic").src = "assets/images/sinestro.jpg";
 			document.getElementById("nameTag").innerHTML = "Sinestro";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Hard light constructs, instant weaponry, force fields, flight, durability, alien technology, fear provocation, intelligence";
 		}
 
 		else if(selectedWord === "joker") {
 			document.getElementById("hangman-pic").src = "assets/images/joker.jpg";
 			document.getElementById("nameTag").innerHTML = "The Joker";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "Complete unpredictability, intelligence";
 		}
 
 		else if(selectedWord === "darkseid") {
 			document.getElementById("hangman-pic").src = "assets/images/darkseid.jpg";
 			document.getElementById("nameTag").innerHTML = "Darkseid";
-			document.getElementById("description").innerHTML = "";
+			document.getElementById("description").innerHTML = "super strength, invulnerability, genius-level intellect, combat strategy, alien technology, teleportation, energy blasts";
 		}
 
 			else {
