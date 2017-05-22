@@ -126,7 +126,7 @@ function roundComplete() {
 
  		document.getElementById("hangman-pic").style.height = "350px";
  		document.getElementById("hangman-pic").style.border = "solid 2px white";
- 		document.getElementById("description").innerHTML = "Guess the letters correctly to form a word before your run out of guesses.";
+ 		document.getElementById("description").innerHTML = "Guess the letters to form the name of a superhero or villain before your run out of guesses.";
  		document.getElementById("description").style.textAlign = "left";
  		document.getElementById("powers-tag").innerHTML = "Abilities:";
 
