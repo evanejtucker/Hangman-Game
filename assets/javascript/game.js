@@ -270,12 +270,12 @@ function roundComplete() {
 			}
 }
 
+
 // Main Process
 //------------------------------------------------------------
 
 startGame();
 // changePic();
-
 
 document.onkeyup = function(event) {
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
