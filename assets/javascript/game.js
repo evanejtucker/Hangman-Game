@@ -25,7 +25,7 @@ var guessesLeft = 7;
 // sound array 
 var soundArray = ["assets/sounds/batman-theme.mp3", "assets/sounds/captainplanet24.mp3", "assets/sounds/superman-theme.mp3", 
 				  "assets/sounds/spiderman-theme.mp3", "assets/sounds/legionOfDoom.mp3", "assets/sounds/superfriends-theme.mp3",
-				  "assets/sounds/aquaman-theme.mp3", "assets/sounds/hulk-theme.mp3", "assets/sounds/hulk-theme.mp3" ];
+				  "assets/sounds/aquaman-theme.mp3", "assets/sounds/hulk-theme.mp3", "assets/sounds/shazam-theme.mp3" ];
 
 // select theme sound
 var selectedSound = selectedSound = soundArray[Math.floor(Math.random()* soundArray.length)];;
