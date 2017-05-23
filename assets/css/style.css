@@ -80,3 +80,11 @@ p#description {
 #hintButton {
 	margin-top: -20px;
 }
+
+#wins {
+	color: #59E817;
+}
+
+#losses {
+	color: red;
+}

@@ -6,9 +6,9 @@ $(document).ready(function() {
 
 //arrays and variables for holding data
 var options = ["batman", "superman", "aquaman", "shazam", "cyborg",
-			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool",
+			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach", 
 			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
-			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", 
+			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin", 
 			   "joker", "darkseid" ]; 
 var selectedWord = "";
 var lettersInWord = [];
@@ -21,12 +21,25 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 7;
 
+
+// sound array 
+var soundArray = ["assets/sounds/batman-theme.mp3", "assets/sounds/captainplanet24.mp3", "assets/sounds/superman-theme.mp3", 
+				  "assets/sounds/spiderman-theme.mp3", ];
+
+// select theme sound
+var selectedSound = soundArray[Math.floor(Math.random()* soundArray.length)];
+
+
 // sound
 var audioElement = document.createElement("audio");
-audioElement.setAttribute("src", "assets/sounds/batman-theme.mp3");
+audioElement.setAttribute("src", selectedSound);
+
 
 // hint audio
 var audioElement_theme = document.createElement("audio");
+
+// character sound
+var audioElement_character = document.createElement("audio");
 
 
 
@@ -37,6 +50,8 @@ var startGame = function() {
 	selectedWord = options[Math.floor(Math.random() * options.length)];
 	lettersInWord = selectedWord.split("");
 	numBlanks = lettersInWord.length;
+
+
 
 	// reset variables
 	guessesLeft = 10;
@@ -89,7 +104,7 @@ function checkLetters(letter) {
 		wrongGuesses.push(letter);
 		guessesLeft--;
 			if (guessesLeft < 10) {
-				document.getElementById("guessesLeft").style.color = "green";
+				document.getElementById("guessesLeft").style.color = "#59E817";
 			}
 
 			if (guessesLeft < 8) {
@@ -148,15 +163,15 @@ function roundComplete() {
  		document.getElementById("description").innerHTML = "Guess the letters to form the name of a superhero or villain before your run out of guesses.";
  		document.getElementById("description").style.textAlign = "left";
  		document.getElementById("powers-tag").innerHTML = "Abilities:";
- 		audioElement.setAttribute("src", "assets/sounds/juggernaut-bitch.mp3");
+ 		audioElement.setAttribute("src", "assets/sounds/juggernaut.mp3");
  		
 
 		if(selectedWord === "batman") {
 			document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
 			document.getElementById("nameTag").innerHTML = "Batman";
 			document.getElementById("description").innerHTML = "Exceptional martial artist, combat strategy, inexhaustible wealth, brilliant deductive skill, advanced technology";
-			audioElement.setAttribute("src", "assets/sounds/batman.mp3");
-			audioElement.play();
+			audioElement_character.setAttribute("src", "assets/sounds/batman.mp3");
+			audioElement_character.play();
 		}
 
 		else if(selectedWord === "superman") {
@@ -231,6 +246,14 @@ function roundComplete() {
 			audioElement.play();
 		}
 
+		else if(selectedWord === "rorschach") {
+			document.getElementById("hangman-pic").src = "assets/images/rorschach.jpg";
+			document.getElementById("nameTag").innerHTML = "Rorschach";
+			document.getElementById("description").innerHTML = "Acrobatics, Espionage, Advanced hand-to-hand combatant, Interrogation and intimidation, Journalism, Genius intellect, Great physical strength, Speed and agility, Indomitable will";
+			audioElement.setAttribute("src", "assets/sounds/rorschach.mp3");
+			audioElement.play();
+		}
+
 		else if(selectedWord === "spiderman") {
 			document.getElementById("hangman-pic").src = "assets/images/spidermanDancing.gif";
 			document.getElementById("hangman-pic").style.height = "250px";
@@ -252,7 +275,7 @@ function roundComplete() {
 			document.getElementById("hangman-pic").src = "assets/images/juggernaut.jpg";
 			document.getElementById("nameTag").innerHTML = "Juggernaut";
 			document.getElementById("description").innerHTML = "Superhuman strength and durability, invulnerability via mystical force field, virtually unstoppable momentum, immunity to mental attacks via his helmet";
-			audioElement.setAttribute("src", "assets/sounds/juggernaut-bitch.mp3");
+			audioElement.setAttribute("src", "assets/sounds/juggernaut.mp3");
 			audioElement.play();
 		}
 
@@ -309,6 +332,14 @@ function roundComplete() {
 			document.getElementById("nameTag").innerHTML = "Sinestro";
 			document.getElementById("description").innerHTML = "Hard light constructs, instant weaponry, force fields, flight, durability, alien technology, fear provocation, intelligence";
 			audioElement.setAttribute("src", "assets/sounds/sinestro.mp3");
+			audioElement.play();
+		}
+
+		else if(selectedWord === "penguin") {
+			document.getElementById("hangman-pic").src = "assets/images/penguin.jpg";
+			document.getElementById("nameTag").innerHTML = "Penguin";
+			document.getElementById("description").innerHTML = "Criminal mastermind, master armed/unarmed combatant and tactician, utilizes weaponized umbrellas and other equipment";
+			audioElement.setAttribute("src", "assets/sounds/penguin.mp3");
 			audioElement.play();
 		}
 
@@ -387,6 +418,10 @@ var hint = function() {
 			document.getElementById("hint-answer").innerHTML = "Breaks the fourth wall";
 		}
 
+		else if(selectedWord === "rorschach") {
+			document.getElementById("hint-answer").innerHTML = "Ink blot test";
+		}
+
 		else if(selectedWord === "spiderman") {
 			document.getElementById("hint-answer").innerHTML = "From Queens";
 		}
@@ -427,6 +462,10 @@ var hint = function() {
 			document.getElementById("hint-answer").innerHTML = "really into the color yellow";
 		}
 
+		else if(selectedWord === "penguin") {
+			document.getElementById("hint-answer").innerHTML = "Flightless bird";
+		}
+
 		else if(selectedWord === "joker") {
 			document.getElementById("hint-answer").innerHTML = "Completely crazy";
 		}
@@ -436,7 +475,7 @@ var hint = function() {
 		}
 	}
 	else {
-		document.getElementById("hint-answer").innerHTML = "only when guesses < 6";
+		document.getElementById("hint-answer").innerHTML = "only when guesses less than 6";
 		audioElement_theme.setAttribute("src", "assets/sounds/notToday.mp3");
 		audioElement_theme.play();
 	}
@@ -459,6 +498,7 @@ document.onkeyup = function(event) {
 	// testing / debugging
 	console.log(letterGuessed);
 }
+
 
 $(".play-button").on("click", function() {
         audioElement.play();
