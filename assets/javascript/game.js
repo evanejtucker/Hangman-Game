@@ -24,7 +24,7 @@ var guessesLeft = 7;
 
 // sound array 
 var soundArray = ["assets/sounds/batman-theme.mp3", "assets/sounds/captainplanet24.mp3", "assets/sounds/superman-theme.mp3", 
-				  "assets/sounds/spiderman-theme.mp3", ];
+				  "assets/sounds/spiderman-theme.mp3", "assets/sounds/legionOfDoom.mp3" ];
 
 // select theme sound
 var selectedSound = soundArray[Math.floor(Math.random()* soundArray.length)];
@@ -104,7 +104,7 @@ function checkLetters(letter) {
 		wrongGuesses.push(letter);
 		guessesLeft--;
 			if (guessesLeft < 10) {
-				document.getElementById("guessesLeft").style.color = "#59E817";
+				document.getElementById("guessesLeft").style.color = "#4CC417";
 			}
 
 			if (guessesLeft < 8) {
@@ -163,7 +163,7 @@ function roundComplete() {
  		document.getElementById("description").innerHTML = "Guess the letters to form the name of a superhero or villain before your run out of guesses.";
  		document.getElementById("description").style.textAlign = "left";
  		document.getElementById("powers-tag").innerHTML = "Abilities:";
- 		audioElement.setAttribute("src", "assets/sounds/juggernaut.mp3");
+ 		audioElement.setAttribute("src", selectedSound);
  		
 
 		if(selectedWord === "batman") {
@@ -202,7 +202,7 @@ function roundComplete() {
 			document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
 			document.getElementById("nameTag").innerHTML = "Cyborg";
 			document.getElementById("description").innerHTML = "Super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation";
-			audioElement.setAttribute("src", "assets/sounds/cyborg.mp3");
+			audioElement.setAttribute("src", "assets/sounds/cyborg_1.mp3");
 			audioElement.play();
 		}
 
@@ -512,6 +512,11 @@ $(".pause-button").on("click", function() {
 $(".hint-button").on("click", function() {
         hint()
       })
+
+$("#footer").on("click", function() {
+	audioElement_theme.setAttribute("src", "assets/sounds/legionOfDoom.mp3");
+	audioElement_theme.play();
+});
 
 
 });
