@@ -212,7 +212,7 @@ function roundComplete() {
 			document.getElementById("hangman-pic").src = "assets/images/cyborg.jpg";
 			document.getElementById("nameTag").innerHTML = "Cyborg";
 			document.getElementById("description").innerHTML = "Super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation";
-			audioElement_character.setAttribute("src", "assets/sounds/cyborg_1.mp3");
+			audioElement_character.setAttribute("src", "assets/sounds/cyborg.mp3");
 			audioElement_character.play();
 		}
 
