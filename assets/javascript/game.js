@@ -5,7 +5,7 @@ $(document).ready(function() {
 //------------------------------------------------------------
 
 //arrays and variables for holding data
-var options = ["batman", "superman", "aquaman", "shazam", "cyborg",
+var options = ["batman", "superman", "aquaman", "shazam", "cyborg", "hulk", 
 			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach", 
 			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
 			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin", 
@@ -131,6 +131,10 @@ function roundComplete() {
 	// check if user won
 	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
 		wins++;
+		if (wins >= 1) {
+			document.getElementById("wins").style.color = "#4CC417";
+		}
+
 		heroSet();
 		// alert(blanksAndSuccesses.join("") + " is correct!");
 
@@ -142,6 +146,10 @@ function roundComplete() {
 	// check if user lost
 	else if (guessesLeft == 0) {
 		losses++;
+		if (losses >= 1) {
+			document.getElementById("losses").style.color = "red";
+		}
+
 		heroSet();
 		// alert("You Lost" + "\n" + "The correct ansswer was " + lettersInWord.join(""));
 		
@@ -203,6 +211,14 @@ function roundComplete() {
 			document.getElementById("nameTag").innerHTML = "Cyborg";
 			document.getElementById("description").innerHTML = "Super strength, advanced technology, instant weaponry, genius-level intellect, control over technology, computer hacking, durability, teleportation";
 			audioElement.setAttribute("src", "assets/sounds/cyborg_1.mp3");
+			audioElement.play();
+		}
+
+		else if(selectedWord === "hulk") {
+			document.getElementById("hangman-pic").src = "assets/images/hulk.jpg";
+			document.getElementById("nameTag").innerHTML = "Hulk";
+			document.getElementById("description").innerHTML = "Bruce Banner: Genius-level intellect.         Hulk: Superhuman strength & Superhuman durability";
+			audioElement.setAttribute("src", "assets/sounds/hulk.mp3");
 			audioElement.play();
 		}
 
@@ -398,6 +414,10 @@ var hint = function() {
 			document.getElementById("hint-answer").innerHTML = "Man and machine";
 		}
 
+		else if(selectedWord === "hulk") {
+			document.getElementById("hint-answer").innerHTML = "Gama Radiation";
+		}
+
 		else if(selectedWord === "wolverine") {
 			document.getElementById("hint-answer").innerHTML = "Canadian x-man";
 		}
@@ -475,7 +495,7 @@ var hint = function() {
 		}
 	}
 	else {
-		document.getElementById("hint-answer").innerHTML = "only when guesses less than 6";
+		document.getElementById("hint-answer").innerHTML = "only when guesses left < 6";
 		audioElement_theme.setAttribute("src", "assets/sounds/notToday.mp3");
 		audioElement_theme.play();
 	}

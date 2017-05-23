@@ -78,13 +78,11 @@ p#description {
 }
 
 #hintButton {
-	margin-top: -20px;
+	margin-top: -10px;
 }
 
-#wins {
-	color: #4CC417;
+#hint-answer {
+	padding-top: 10px;
 }
 
-#losses {
-	color: red;
-}
+
