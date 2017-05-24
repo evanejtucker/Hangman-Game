@@ -5,12 +5,15 @@ $(document).ready(function() {
 //------------------------------------------------------------
 
 //arrays and variables for holding data
+
 var options = ["batman", "superman", "aquaman", "shazam", "cyborg", "hulk", 
 			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach", 
 			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
 			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin", 
-			   "joker", "darkseid" ]; 
+			   "joker", "darkseid"]; 
+
 var selectedWord = "";
+var lastWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
 var blanksAndSuccesses = [];
@@ -47,8 +50,24 @@ var audioElement_character = document.createElement("audio");
 // Functions
 //------------------------------------------------------------
 
-var startGame = function() {
+
+// check if selctedf word is same as last word
+// if it is, reset the selected word
+var setSelectedWord = function () {
 	selectedWord = options[Math.floor(Math.random() * options.length)];
+	console.log("selected word =", selectedWord);
+	console.log("last word", lastWord);
+	if (selectedWord === lastWord) {
+		setSelectedWord();
+	}
+	else {
+		lastWord = selectedWord;
+	}
+}
+
+var startGame = function() {
+	// selectedWord = options[Math.floor(Math.random() * options.length)];
+	setSelectedWord();
 	lettersInWord = selectedWord.split("");
 	numBlanks = lettersInWord.length;
 	selectedSound = soundArray[Math.floor(Math.random()* soundArray.length)];
@@ -269,7 +288,7 @@ function roundComplete() {
 			document.getElementById("nameTag").innerHTML = "Rorschach";
 			document.getElementById("description").innerHTML = "Acrobatics, Espionage, Advanced hand-to-hand combatant, Interrogation and intimidation, Journalism, Genius intellect, Great physical strength, Speed and agility, Indomitable will";
 			audioElement_character.setAttribute("src", "assets/sounds/rorschach.mp3");
-			audioElemen_character.play();
+			audioElement_character.play();
 		}
 
 		else if(selectedWord === "spiderman") {
