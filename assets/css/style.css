@@ -84,5 +84,6 @@ p#description {
 #hint-answer {
 	padding-top: 10px;
 }
-
-
+.space {
+  padding-left: 18px;
+}

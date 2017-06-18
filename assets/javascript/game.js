@@ -6,11 +6,23 @@ $(document).ready(function() {
 
 //arrays and variables for holding data
 
-var options = ["batman", "superman", "aquaman", "shazam", "cyborg", "hulk", 
-			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach", 
+function createGame (name, sound) {
+  return {
+    name: '',
+    sound: ''
+  }
+}
+
+var spaceChar = "<span class='space'></span>";
+
+var options = ["batman", "superman", "aquaman", "shazam", "cyborg", "hulk",
+			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach",
 			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
-			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin", 
-			   "joker", "darkseid"]; 
+			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin",
+			   "joker", "darkseid", "captain america"];
+var options2 = ["batman", "superman","Captain America", "Green Arrow"];
+
+var usedOptions = [];
 
 var selectedWord = "";
 var lastWord = "";
@@ -25,8 +37,8 @@ var losses = 0;
 var guessesLeft = 7;
 
 
-// sound array 
-var soundArray = ["assets/sounds/batman-theme.mp3", "assets/sounds/captainplanet24.mp3", "assets/sounds/superman-theme.mp3", 
+// sound array
+var soundArray = ["assets/sounds/batman-theme.mp3", "assets/sounds/captainplanet24.mp3", "assets/sounds/superman-theme.mp3",
 				  "assets/sounds/spiderman-theme.mp3", "assets/sounds/legionOfDoom.mp3", "assets/sounds/superfriends-theme.mp3",
 				  "assets/sounds/aquaman-theme.mp3", "assets/sounds/hulk-theme.mp3", "assets/sounds/shazam-theme.mp3" ];
 
@@ -49,20 +61,36 @@ var audioElement_character = document.createElement("audio");
 
 // Functions
 //------------------------------------------------------------
-
+var removeSpaces = function (char) {
+  if (char === spaceChar) {
+    return " ";
+  } else {
+    return char;
+  }
+}
 
 // check if selctedf word is same as last word
 // if it is, reset the selected word
 var setSelectedWord = function () {
-	selectedWord = options[Math.floor(Math.random() * options.length)];
-	console.log("selected word =", selectedWord);
-	console.log("last word", lastWord);
-	if (selectedWord === lastWord) {
-		setSelectedWord();
-	}
-	else {
-		lastWord = selectedWord;
-	}
+
+  if (options2.length === 0) {
+    options2 = usedOptions
+  }
+
+	selectedWord = options2.splice(Math.floor(Math.random() * options2.length), 1)[0];
+  usedOptions.push(selectedWord)
+
+  console.log('selectedWord', selectedWord)
+  console.log('options2', options2)
+  console.log('usedOptions', usedOptions)
+	// console.log("selected word =", selectedWord);
+	// console.log("last word", lastWord);
+	// if (selectedWord === lastWord) {
+	// 	setSelectedWord();
+	// }
+	// else {
+	// 	lastWord = selectedWord;
+	// }
 }
 
 var startGame = function() {
@@ -81,7 +109,12 @@ var startGame = function() {
 
 	// Populate blanks and successes with correct number of blanks.
 	for(i=0; i<numBlanks; i++) {
-		blanksAndSuccesses.push("_");
+    console.log(lettersInWord[i])
+    if (lettersInWord[i] === " ") {
+      blanksAndSuccesses.push(spaceChar);
+    } else {
+      blanksAndSuccesses.push("_");
+    }
 	}
 
 	//change HTML to meet game starting conditions
@@ -92,7 +125,7 @@ var startGame = function() {
 	document.getElementById("guessesLeft").style.color = "black";
 	document.getElementById("hint-answer").innerHTML = "";
 
-	
+
 
 	// testing / debugging
 	console.log(selectedWord);
@@ -105,8 +138,10 @@ function checkLetters(letter) {
 	//check if letter exists in string at all
 	var isLetterInWord = false;
 
+
+
 	for(i=0; i<numBlanks; i++) {
-		if(selectedWord[i] == letter) {
+		if(selectedWord[i].toUpperCase() == letter.toUpperCase()) {
 			isLetterInWord = true;
 		}
 	}
@@ -115,12 +150,12 @@ function checkLetters(letter) {
 	// the successesAndBlanks with the correct letter
 	if(isLetterInWord) {
 		for(i=0; i<numBlanks; i++) {
-			if(selectedWord[i] == letter) {
-				blanksAndSuccesses[i] = letter;
+			if(selectedWord[i].toLowerCase() == letter) {
+				blanksAndSuccesses[i] = selectedWord[i];
 			}
 		}
 	}
-	// letter wasnt found 
+	// letter wasnt found
 	else {
 		wrongGuesses.push(letter);
 		guessesLeft--;
@@ -149,9 +184,13 @@ function roundComplete() {
 	document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
 	document.getElementById("wrongGuesses").innerHTML = wrongGuesses.join(" ");
 
+  console.log(blanksAndSuccesses);
+  var onlyLetters = blanksAndSuccesses.map(removeSpaces);
+  console.log(onlyLetters);
 	// check if user won
-	if(lettersInWord.toString() === blanksAndSuccesses.toString()) {
-		wins++;
+	if(lettersInWord.toString() === onlyLetters.toString()) {
+
+    wins++;
 		if (wins >= 1) {
 			document.getElementById("wins").style.color = "#4CC417";
 		}
@@ -161,7 +200,7 @@ function roundComplete() {
 
 		// update win counter and restart game when the user wins
 		document.getElementById("wins").innerHTML = wins;
-		
+
 		startGame();
 	}
 	// check if user lost
@@ -173,7 +212,7 @@ function roundComplete() {
 
 		heroSet();
 		// alert("You Lost" + "\n" + "The correct ansswer was " + lettersInWord.join(""));
-		
+
 
 		//update HTML
 		document.getElementById("losses").innerHTML = losses;
@@ -193,7 +232,7 @@ function roundComplete() {
  		document.getElementById("description").style.textAlign = "left";
  		document.getElementById("powers-tag").innerHTML = "Abilities:";
  		audioElement.setAttribute("src", selectedSound);
- 		
+
 
 		if(selectedWord === "batman") {
 			document.getElementById("hangman-pic").src = "assets/images/batman.jpg";
@@ -400,7 +439,7 @@ function roundComplete() {
 				document.getElementById("hangman-pic").src = "assets/images/hangman.png";
 				document.getElementById("hangman-pic").style.height = "250px";
 			 	document.getElementById("description").innerHTML = "Guess the letters correctly to form a word before your run out of guesses.";
-	
+
 			}
 }
 
@@ -531,11 +570,14 @@ startGame();
 // changePic();
 
 document.onkeyup = function(event) {
-	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-	checkLetters(letterGuessed);
-	roundComplete();
-	
-
+  console.log("LETTER CODE", event.keyCode)
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+	  checkLetters(letterGuessed);
+	  roundComplete();
+  } else {
+    $('#message').text('Only A - Z')
+  }
 	// testing / debugging
 	console.log(letterGuessed);
 }
