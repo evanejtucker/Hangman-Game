@@ -6,21 +6,13 @@ $(document).ready(function() {
 
 //arrays and variables for holding data
 
-function createGame (name, sound) {
-  return {
-    name: '',
-    sound: ''
-  }
-}
-
 var spaceChar = "<span class='space'></span>";
 
 var options = ["batman", "superman", "aquaman", "shazam", "cyborg", "hulk",
 			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach",
 			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
 			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin",
-			   "joker", "darkseid", "captain america"];
-var options2 = ["batman", "superman","Captain America", "Green Arrow"];
+			   "joker", "darkseid", "captain america", "green arrow"];
 
 var usedOptions = [];
 
@@ -73,15 +65,15 @@ var removeSpaces = function (char) {
 // if it is, reset the selected word
 var setSelectedWord = function () {
 
-  if (options2.length === 0) {
-    options2 = usedOptions
+  if (options.length === 0) {
+    options = usedOptions
   }
 
-	selectedWord = options2.splice(Math.floor(Math.random() * options2.length), 1)[0];
+	selectedWord = options.splice(Math.floor(Math.random() * options.length), 1)[0];
   usedOptions.push(selectedWord)
 
   console.log('selectedWord', selectedWord)
-  console.log('options2', options2)
+  console.log('options', options)
   console.log('usedOptions', usedOptions)
 	// console.log("selected word =", selectedWord);
 	// console.log("last word", lastWord);
