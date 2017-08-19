@@ -12,7 +12,7 @@ var options = ["batman", "superman", "aquaman", "shazam", "cyborg", "hulk",
 			   "wolverine", "daredevil", "firestorm", "colossus", "deadpool", "rorschach",
 			   "spiderman", "magneto", "juggernaut", "apocalypse", "doomsday",
 			   "scarecrow", "deathstroke", "ultron", "brainiac", "sinestro", "penguin",
-			   "joker", "darkseid", "captain america", "green arrow"];
+			   "joker", "darkseid"];
 
 var usedOptions = [];
 
